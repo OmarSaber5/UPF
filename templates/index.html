@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Places in University</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Find Places in University</h1>
+    <form action="/find" method="post">
+        <label for="current_place">You are at:</label>
+        <select name="current_place" id="current_place">
+            {% for place in places %}
+                <option value="{{ place }}">{{ place }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="target_place">You want to go to:</label>
+        <select name="target_place" id="target_place">
+            {% for place in places %}
+                <option value="{{ place }}">{{ place }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Find</button>
+    </form>
+</body>
+</html>
